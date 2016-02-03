@@ -187,8 +187,8 @@ int main(void)
         		}
 
         	}
-        	if(strcmp(messages[0], "add") == 0){
-        		add(messages[1], messages[2]);
+        	if(strcmp(tok[0], "add") == 0){
+        		add(tok[1], tok[2]);
         		printf("Successfully added a key value pair\n");
         	}
         }
