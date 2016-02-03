@@ -128,6 +128,7 @@ int main(void)
     char *messages;
     char *tok[MAXDATASIZE];
     int currentMessages;
+    int i;
 
     numUsed = 0;
     messages = (char*)malloc(MAXDATASIZE);
@@ -224,6 +225,12 @@ int main(void)
         	}
         	else if(strcmp(tok[0], "getvalue") == 0){
         		getValue(tok[1], new_fd);
+        	}
+        	else if(strcmp(tok[0], "exit") == 0){
+        		return 0;
+        	}
+        	for(i = 0; i < MAXDATASIZE; i++){
+        		tok[i] = " ";
         	}
         }
     }
