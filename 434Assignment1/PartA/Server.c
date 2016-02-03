@@ -41,6 +41,12 @@ void add(char *key, char *value){
 }
 
 char *getValue(char *key){
+	int i = 0;
+	for(i = 0; i < 10; i++){
+		if(strcmp(pairList[i].key , key) == 0){
+			return pairList[i].value;
+		}
+	}
 	return NULL;
 }
 
