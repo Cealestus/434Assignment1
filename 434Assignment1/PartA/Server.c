@@ -95,11 +95,11 @@ int main(void)
     char buf[MAXDATASIZE];
     int numBytes;
     char *messages[MAXDATASIZE];
-    char *tok;
+    char *tok[MAXDATASIZE];
     int currentMessages;
 
     numUsed = 0;
-    tok = (char*) malloc(MAXDATASIZE);
+    messages = (char*)malloc(MAXDATASIZE);
     memset(&hints, 0, sizeof hints);
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
@@ -177,16 +177,15 @@ int main(void)
         	}
         	else{
         		currentMessages = 0;
-        		while((tok = strtok(buf, " ")) != NULL){
-        			printf("about to malloc\n");
-        			messages[currentMessages] = (char*)malloc(sizeof(tok));
-        			printf("Malloc'd properly\n");
-        			messages[currentMessages] = tok;
-        			printf("Adding tok to the messages list\n");
-        			printf("%s\n", messages[currentMessages]);
+        		tok = NULL;
+        		messages = strtok(buf, " ");
+        		while(messages != NULL){
+        			tok[curentMessages] = messages;
+        			printf("%s\n", tok[currentMessages]);
         			currentMessages++;
-        			tok = NULL;
+        			messages = strtok(NULL, " ");
         		}
+
         	}
         	if(strcmp(messages[0], "add") == 0){
         		add(messages[1], messages[2]);
