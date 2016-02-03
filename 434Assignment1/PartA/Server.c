@@ -28,7 +28,7 @@ typedef struct{
 
 pair pairList[10];
 int numUsed;
-bool cont;
+int cont;
 
 void add(char *key, char *value){
 	int i = 0;
@@ -164,7 +164,7 @@ int main(void)
             s, sizeof s);
         printf("server: got connection from %s\n", s);
 
-        cont = TRUE;
+        cont = 1;
         while(cont){
         	numBytes = recv(sockfd, buf, MAXDATASIZE, 0);
         	if (numBytes == -1) {
