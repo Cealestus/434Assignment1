@@ -165,7 +165,7 @@ int main(void)
 
         cont = 1;
         while(cont){
-        	numBytes = recv(sockfd, buf, MAXDATASIZE, 0);
+        	numBytes = recv(new_fd, buf, MAXDATASIZE, 0);
         	if (numBytes == -1) {
         		perror("recv");
         		exit(1);
