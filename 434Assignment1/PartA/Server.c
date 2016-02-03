@@ -178,6 +178,7 @@ int main(void)
         	else{
         		currentMessages = 0;
         		while((tok = strtok(buf, " ")) != NULL){
+        			messages[currentMessages] = (char*)malloc(sizeof(tok));
         			messages[currentMessages] = tok;
         			currentMessages++;
         			printf("%s\n", messages[currentMessages]);
