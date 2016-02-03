@@ -196,16 +196,13 @@ int main(void)
         		messages = strtok(buf, " ");
         		while(messages != NULL){
         			tok[currentMessages] = messages;
-        			printf("%s\n", tok[currentMessages]);
         			currentMessages++;
         			messages = strtok(NULL, " ");
         		}
 
         	}
         	if(strcmp(tok[0], "add") == 0){
-        		printf("About to go into add\n");
         		add(tok[1], tok[2], new_fd);
-        		printf("Successfully added a key value pair\n");
         	}
         }
     }
