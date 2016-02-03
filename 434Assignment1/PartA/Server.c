@@ -35,8 +35,8 @@ void printPairList(int new_fd){
 	int i;
 	for(i = 0; i < 10; i++){
 		sprintf(sent, "%s, %s", pairList[i].key, pairList[i].value);
+		send(new_fd, sent, strlen(sent), 0);
 	}
-	send(new_fd, sent, strlen(sent), 0);
 }
 
 void add(char *key, char *value, int new_fd){
