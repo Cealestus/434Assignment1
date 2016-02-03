@@ -178,8 +178,10 @@ int main(void)
         	else{
         		currentMessages = 0;
         		while((tok = strtok(buf, " ")) != NULL){
+        			printf("about to malloc\n");
         			messages[currentMessages] = (char*)malloc(sizeof(tok));
-        			messages[currentMessages] = *tok;
+        			printf("Malloc'd properly\n");
+        			messages[currentMessages] = tok;
         			currentMessages++;
         			printf("%s\n", messages[currentMessages]);
         			tok = NULL;
@@ -187,7 +189,7 @@ int main(void)
         	}
         	if(strcmp(messages[0], "add") == 0){
         		add(messages[1], messages[2]);
-        		printf("Successfully added a key value pair");
+        		printf("Successfully added a key value pair\n");
         	}
         }
     }
