@@ -33,7 +33,7 @@ void add(char *key, char *value){
 		if(strcmp(pairList[i].key, key) == 0){
 
 		}
-		else if(pairList[i] == NULL){
+		else if(pairList[i].key == NULL){
 			pairList[i].key = (char*) malloc(sizeof(key));
 			pairList[i].value = (char*) malloc(sizeof(value));
 		}
