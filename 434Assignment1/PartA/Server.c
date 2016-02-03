@@ -164,7 +164,7 @@ int main(void)
             s, sizeof s);
         printf("server: got connection from %s\n", s);
 
-        cont = true;
+        cont = TRUE;
         while(cont){
         	numBytes = recv(sockfd, buf, MAXDATASIZE, 0);
         	if (numBytes == -1) {
