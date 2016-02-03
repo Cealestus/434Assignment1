@@ -54,7 +54,7 @@ pair *getAll(){
 	return NULL;
 }
 
-void remove(char *key){
+void removePair(char *key){
 
 }
 
