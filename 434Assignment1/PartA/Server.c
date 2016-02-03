@@ -36,7 +36,7 @@ void add(char *key, char *value, int new_fd){
 		for(i = 0; i < 10; i++){
 			printf("Checking key: %s value: %s", pairList[i].key, pairList[i].value);
 			if(pairList[i].key != NULL && strcmp(pairList[i].key, key) == 0){
-				printf("Recognized key: %s value: %s already in server in index %i", pairList[i].key, pairList[i].value, i);
+				printf("Recognized key: %s value: %s already in server in index %i\n", pairList[i].key, pairList[i].value, i);
 				char sent[MAXDATASIZE];
 				sprintf(sent, "Key: %s already in the server at position %i, which contains: %s\n", key, i, pairList[i].key);
 				send(new_fd, sent, strlen(sent), 0);
@@ -49,6 +49,7 @@ void add(char *key, char *value, int new_fd){
 				char sent[MAXDATASIZE];
 				sprintf(sent, "Key: %s, Value: %s, added to the server, currently have %i values in the server\n", pairList[i].key, pairList[i].value, numUsed);
 				send(new_fd, sent, strlen(sent), 0);
+				printf("About to return\n");
 				return;
 			}
 		}
@@ -80,7 +81,7 @@ void getValue(char *key, int new_fd){
 		return;
 	}
 	char sent[MAXDATASIZE];
-	sprintf(sent, "Value for key: %s, was not found", key);
+	sprintf(sent, "Value for key: %s, was not found\n", key);
 	send(new_fd, sent, strlen(sent), 0);
 	return;
 }
