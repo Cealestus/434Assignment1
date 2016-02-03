@@ -28,7 +28,8 @@ pair pairList[10];
 int numUsed;
 
 void add(char *key, char *value){
-	for(int i = 0; i < 10; i++){
+	int i = 0;
+	for(i = 0; i < 10; i++){
 		if(strcmp(pairList[i].key, key) == 0){
 
 		}
