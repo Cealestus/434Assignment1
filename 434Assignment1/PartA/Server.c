@@ -61,8 +61,8 @@ void add(char *key, char *value, int new_fd){
 
 void getValue(char *key, int new_fd){
 	int i = 0;
-	printf("numUsed is: %i\n", numUsed);
 	if(numUsed > 0){
+		printf("Before the for loop\n");
 		for(i = 0; i < 10; i++){
 			if(pairList[i].key != NULL && strcmp(pairList[i].key , key) == 0){
 				printf("Checking key: %s, value: %s\n", pairList[i].key, pairList[i].value);
