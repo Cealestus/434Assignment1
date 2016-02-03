@@ -61,7 +61,7 @@ void add(char *key, char *value, int new_fd){
 
 void getValue(char *key, int new_fd){
 	int i = 0;
-	if(numUsed == 0){
+	if(numUsed > 0){
 		for(i = 0; i < 10; i++){
 			if(strcmp(pairList[i].key , key) == 0){
 				char sent[MAXDATASIZE];
