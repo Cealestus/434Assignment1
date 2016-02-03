@@ -30,21 +30,29 @@ pair pairList[10];
 int numUsed;
 int cont;
 
-void add(char *key, char *value){
-	printf("Made it into add\n");
+void add(char *key, char *value, int new_fd){
 	int i = 0;
-	for(i = 0; i < 10; i++){
-		printf("In the for loop\n");
-		if(pairList[i].key != NULL && strcmp(pairList[i].key, key) == 0){
-
+	if(numUsed < 9){
+		for(i = 0; i < 10; i++){
+			if(pairList[i].key != NULL && strcmp(pairList[i].key, key) == 0){
+				char sent[MAXDATASIZE];
+				sprintf(sent, "Key: %s already in the server\n", key);
+				send(new_fd, sent, strlen(sent), 0);
+			}
+			else if(pairList[i].key == NULL){
+				pairList[i].key = (char*) malloc(sizeof(key));
+				pairList[i].value = (char*) malloc(sizeof(value));
+				numUsed++;
+				char sent[MAXDATASIZE];
+				sprintf(sent, "Key: %s, Value: %s, added to the server\n", key, value);
+				send(new_fd, sent, strlen(sent), 0);
+			}
 		}
-		else if(pairList[i].key == NULL){
-			printf("In the else statement\n");
-			pairList[i].key = (char*) malloc(sizeof(key));
-			pairList[i].value = (char*) malloc(sizeof(value));
-			numUsed++;
-		}
-		printf("Outside the if and else if\n");
+	}
+	else{
+		char sent[MAXDATASIZE];
+		sprintf(sent, "Server full\n");
+		send(new_fd, sent, strlen(sent), 0);
 	}
 }
 
@@ -193,7 +201,7 @@ int main(void)
         	}
         	if(strcmp(tok[0], "add") == 0){
         		printf("About to go into add\n");
-        		add(tok[1], tok[2]);
+        		add(tok[1], tok[2], new_fd);
         		printf("Successfully added a key value pair\n");
         	}
         }
