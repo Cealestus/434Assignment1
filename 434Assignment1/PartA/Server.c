@@ -30,6 +30,15 @@ pair pairList[10];
 int numUsed;
 int cont;
 
+void printPairList(int new_fd){
+	char sent[MAXDATASIZE];
+	int i;
+	for(i = 0; i < 10; i++){
+		sprintf(sent, "%s, %s", pairList[i].key, pairList[i].value);
+	}
+	send(new_fd, sent, strlen(sent), 0);
+}
+
 void add(char *key, char *value, int new_fd){
 	int i = 0;
 	if(numUsed < 9){
@@ -223,9 +232,11 @@ int main(void)
         	}
         	if(strcmp(tok[0], "add") == 0){
         		add(tok[1], tok[2], new_fd);
+        		printPairList(new_fd);
         	}
         	else if(strcmp(tok[0], "getvalue") == 0){
         		getValue(tok[1], new_fd);
+        		printPairList(new_fd);
         	}
         	else if(strcmp(tok[0], "exit") == 0){
         		return 0;
