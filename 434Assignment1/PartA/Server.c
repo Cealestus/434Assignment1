@@ -77,7 +77,7 @@ void getValue(char *key, int new_fd){
 		return;
 	}
 	char sent[MAXDATASIZE];
-	sprintf("Value for key: %s, was not found", key);
+	sprintf(sent, "Value for key: %s, was not found", key);
 	send(new_fd, sent, strlen(sent), 0);
 	return;
 }
