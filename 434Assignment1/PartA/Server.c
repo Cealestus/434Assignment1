@@ -63,7 +63,7 @@ void add(char *key, char *value, int new_fd){
 void getValue(char *key, int new_fd){
 	int i = 0;
 	if(numUsed > 0){
-		for(i = 0; i <= numUsed; i++){
+		for(i = 0; i < numUsed; i++){
 			printf("Checking key: %s, value: %s\n", pairList[i].key, pairList[i].value);
 			if(strcmp(pairList[i].key , key) == 0){
 				char sent[MAXDATASIZE];
