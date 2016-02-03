@@ -57,9 +57,8 @@ pair *getAll(){
 	return NULL;
 }
 
-void removePair(char *key){
-
-}
+/*void removePair(char *key){*/
+/*}*/
 
 void sigchld_handler()
 {
