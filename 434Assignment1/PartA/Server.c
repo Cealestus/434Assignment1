@@ -63,9 +63,9 @@ void add(char *key, char *value, int new_fd){
 void getValue(char *key, int new_fd){
 	int i = 0;
 	if(numUsed > 0){
-		for(i = 0; i < 10; i++){
+		for(i = 0; i <= numUsed; i++){
 			printf("Checking key: %s, value: %s\n", pairList[i].key, pairList[i].value);
-			if(pairList[i].key != NULL && strcmp(pairList[i].key , key) == 0){
+			if(strcmp(pairList[i].key , key) == 0){
 				char sent[MAXDATASIZE];
 				sprintf(sent, "Value for key: %s, is: %s\n", key, pairList[i].value);
 				send(new_fd, sent, strlen(sent), 0);
@@ -214,7 +214,9 @@ int main(void)
         			currentMessages++;
         			messages = strtok(NULL, " ");
         		}
-
+        		tok[0] = strsep(tok[0],'\n');
+        		tok[1] = strsep(tok[1], '\n');
+        		tok[2] = strsep(tok[2], '\n');
         	}
         	if(strcmp(tok[0], "add") == 0){
         		add(tok[1], tok[2], new_fd);
