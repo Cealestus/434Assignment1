@@ -35,7 +35,7 @@ void add(char *key, char *value){
 	int i = 0;
 	for(i = 0; i < 10; i++){
 		printf("In the for loop\n");
-		if(strcmp(pairList[i].key, key) == 0){
+		if(pairList[i].key != NULL && strcmp(pairList[i].key, key) == 0){
 
 		}
 		else if(pairList[i].key == NULL){
