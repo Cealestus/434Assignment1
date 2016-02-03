@@ -37,7 +37,6 @@ void add(char *key, char *value){
 
 		}
 		else if(pairList[i].key == NULL){
-			printf("Adding a new key and value to the server\n");
 			pairList[i].key = (char*) malloc(sizeof(key));
 			pairList[i].value = (char*) malloc(sizeof(value));
 			numUsed++;
@@ -189,6 +188,7 @@ int main(void)
 
         	}
         	if(strcmp(tok[0], "add") == 0){
+        		printf("About to go into add\n");
         		add(tok[1], tok[2]);
         		printf("Successfully added a key value pair\n");
         	}
