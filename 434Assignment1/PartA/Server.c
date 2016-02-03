@@ -64,6 +64,7 @@ void getValue(char *key, int new_fd){
 	if(numUsed > 0){
 		for(i = 0; i < 10; i++){
 			if(pairList[i].key != NULL && strcmp(pairList[i].key , key) == 0){
+				printf("Checking key: %s, value: %s\n", pairList[i].key, pairList[i].value);
 				char sent[MAXDATASIZE];
 				sprintf(sent, "Value for key: %s, is: %s\n", key, pairList[i].value);
 				send(new_fd, sent, strlen(sent), 0);
