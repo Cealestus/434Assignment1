@@ -39,10 +39,12 @@ void add(char *key, char *value){
 
 		}
 		else if(pairList[i].key == NULL){
+			printf("In the else statement\n");
 			pairList[i].key = (char*) malloc(sizeof(key));
 			pairList[i].value = (char*) malloc(sizeof(value));
 			numUsed++;
 		}
+		printf("Outside the if and else if\n");
 	}
 }
 
