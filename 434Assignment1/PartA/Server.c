@@ -38,7 +38,7 @@ void add(char *key, char *value, int new_fd){
 			if(pairList[i].key != NULL && strcmp(pairList[i].key, key) == 0){
 				printf("Recognized key: %s value: %s already in server in index %i", pairList[i].key, pairList[i].value, i);
 				char sent[MAXDATASIZE];
-				sprintf(sent, "Key: %s already in the server at position %i\n", key, i);
+				sprintf(sent, "Key: %s already in the server at position %i, which contains: %s\n", key, i, pairList[i].key);
 				send(new_fd, sent, strlen(sent), 0);
 				return;
 			}
