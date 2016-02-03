@@ -19,7 +19,7 @@
 
 #define BACKLOG 10     // how many pending connections queue will hold
 
-typdef struct{
+typedef struct{
 	char *key;
 	char *value;
 }pair;
