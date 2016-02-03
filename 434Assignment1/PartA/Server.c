@@ -72,7 +72,7 @@ void getValue(char *key, int new_fd){
 		}
 	}else{
 		char sent[MAXDATASIZE];
-		sprintf("Server is currently empty, no data to retrieve\n");
+		sprintf(sent, "Server is currently empty, no data to retrieve\n");
 		send(new_fd, sent, strlen(sent), 0);
 		return;
 	}
