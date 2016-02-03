@@ -91,7 +91,7 @@ int main(void)
     int yes=1;
     char s[INET6_ADDRSTRLEN];
     int rv;
-    char buf[MAXDATASIZE];
+    char *buf[MAXDATASIZE];
     int numBytes;
 
     numUsed = 0;
