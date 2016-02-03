@@ -38,6 +38,7 @@ void add(char *key, char *value, int new_fd){
 				char sent[MAXDATASIZE];
 				sprintf(sent, "Key: %s already in the server\n", key);
 				send(new_fd, sent, strlen(sent), 0);
+				return;
 			}
 			else if(pairList[i].key == NULL){
 				pairList[i].key = (char*) malloc(sizeof(key));
@@ -46,6 +47,7 @@ void add(char *key, char *value, int new_fd){
 				char sent[MAXDATASIZE];
 				sprintf(sent, "Key: %s, Value: %s, added to the server\n", key, value);
 				send(new_fd, sent, strlen(sent), 0);
+				return;
 			}
 		}
 	}
@@ -53,6 +55,7 @@ void add(char *key, char *value, int new_fd){
 		char sent[MAXDATASIZE];
 		sprintf(sent, "Server full\n");
 		send(new_fd, sent, strlen(sent), 0);
+		return;
 	}
 }
 
