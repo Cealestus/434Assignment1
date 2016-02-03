@@ -45,7 +45,7 @@ void add(char *key, char *value, int new_fd){
 				pairList[i].value = (char*) malloc(sizeof(value));
 				numUsed++;
 				char sent[MAXDATASIZE];
-				sprintf(sent, "Key: %s, Value: %s, added to the server\n", key, value);
+				sprintf(sent, "Key: %s, Value: %s, added to the server, currently have %i values in the server\n", key, value, numUsed);
 				send(new_fd, sent, strlen(sent), 0);
 				return;
 			}
