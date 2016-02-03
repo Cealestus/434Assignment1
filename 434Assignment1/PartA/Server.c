@@ -36,6 +36,7 @@ void add(char *key, char *value, int new_fd){
 		for(i = 0; i < 10; i++){
 			printf("Checking key: %s value: %s", pairList[i].key, pairList[i].value);
 			if(pairList[i].key != NULL && strcmp(pairList[i].key, key) == 0){
+				printf("Recognized key: %s value: %s already in server", pairList[i].key, pairList[i].value);
 				char sent[MAXDATASIZE];
 				sprintf(sent, "Key: %s already in the server\n", key);
 				send(new_fd, sent, strlen(sent), 0);
