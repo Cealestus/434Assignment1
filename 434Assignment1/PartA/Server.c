@@ -182,6 +182,7 @@ int main(void)
         			messages[currentMessages] = (char*)malloc(sizeof(tok));
         			printf("Malloc'd properly\n");
         			messages[currentMessages] = tok;
+        			printf("Adding tok to the messages list\n");
         			currentMessages++;
         			printf("%s\n", messages[currentMessages]);
         			tok = NULL;
