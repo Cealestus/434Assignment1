@@ -214,9 +214,9 @@ int main(void)
         			currentMessages++;
         			messages = strtok(NULL, " ");
         		}
-        		tok[0] = strsep(tok[0],'\n');
-        		tok[1] = strsep(tok[1], '\n');
-        		tok[2] = strsep(tok[2], '\n');
+        		tok[0] = strsep(tok[0],"\n");
+        		tok[1] = strsep(tok[1], "\n");
+        		tok[2] = strsep(tok[2], "\n");
         	}
         	if(strcmp(tok[0], "add") == 0){
         		add(tok[1], tok[2], new_fd);
