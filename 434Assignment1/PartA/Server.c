@@ -19,7 +19,7 @@
 
 #define BACKLOG 10     // how many pending connections queue will hold
 
-void sigchld_handler(int s)
+void sigchld_handler()
 {
     // waitpid() might overwrite errno, so we save and restore it:
     int saved_errno = errno;
