@@ -94,7 +94,7 @@ int main(void)
     int rv;
     char buf[MAXDATASIZE];
     int numBytes;
-    char *messages[MAXDATASIZE];
+    char *messages;
     char *tok[MAXDATASIZE];
     int currentMessages;
 
@@ -180,7 +180,7 @@ int main(void)
         		tok = NULL;
         		messages = strtok(buf, " ");
         		while(messages != NULL){
-        			tok[curentMessages] = messages;
+        			tok[currentMessages] = messages;
         			printf("%s\n", tok[currentMessages]);
         			currentMessages++;
         			messages = strtok(NULL, " ");
