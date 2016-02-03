@@ -45,7 +45,7 @@ void add(char *key, char *value, int new_fd){
 				pairList[i].value = (char*) malloc(sizeof(value));
 				numUsed++;
 				char sent[MAXDATASIZE];
-				sprintf(sent, "Key: %s, Value: %s, added to the server, currently have %i values in the server\n", key, value, numUsed);
+				sprintf(sent, "Key: %s, Value: %s, added to the server, currently have %i values in the server\n", pairList[i].key, pairList[i].value, numUsed);
 				send(new_fd, sent, strlen(sent), 0);
 				return;
 			}
@@ -63,9 +63,6 @@ void getValue(char *key, int new_fd){
 	int i = 0;
 	if(numUsed > 0){
 		for(i = 0; i < 10; i++){
-			if(pairList[i].key == NULL){
-				printf("Index: %i is NULL", i);
-			}
 			if(pairList[i].key != NULL && strcmp(pairList[i].key , key) == 0){
 				printf("Checking key: %s, value: %s\n", pairList[i].key, pairList[i].value);
 				char sent[MAXDATASIZE];
