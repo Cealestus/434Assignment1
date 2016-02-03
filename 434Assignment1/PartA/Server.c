@@ -39,6 +39,7 @@ void add(char *key, char *value){
 		else if(pairList[i].key == NULL){
 			pairList[i].key = (char*) malloc(sizeof(key));
 			pairList[i].value = (char*) malloc(sizeof(value));
+			numUsed++;
 		}
 	}
 }
@@ -93,8 +94,12 @@ int main(void)
     int rv;
     char buf[MAXDATASIZE];
     int numBytes;
+    char *messages[MAXDATASIZE];
+    char *tok;
+    int currentMessages;
 
     numUsed = 0;
+    tok = (char*) malloc(MAXDATASIZE);
     memset(&hints, 0, sizeof hints);
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
@@ -171,7 +176,17 @@ int main(void)
         		exit(1);
         	}
         	else{
-        		printf("%s\n", buf);
+        		currentMessages = 0;
+        		while((tok = strtok(buf, " ")) != NULL){
+        			messages[currentMessages] = tok;
+        			currentMessages++;
+        			printf("%s\n", messages[currentMessages]);
+        			tok = NULL;
+        		}
+        	}
+        	if(strcmp(messages[0], "add") == 0){
+        		add(messages[1], messages[2]);
+        		printf("Successfully added a key value pair");
         	}
         }
     }
