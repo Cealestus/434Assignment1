@@ -177,7 +177,7 @@ int main(void)
         	}
         	else{
         		currentMessages = 0;
-        		tok = NULL;
+        		messages = NULL;
         		messages = strtok(buf, " ");
         		while(messages != NULL){
         			tok[currentMessages] = messages;
