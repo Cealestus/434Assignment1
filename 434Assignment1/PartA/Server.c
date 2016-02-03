@@ -19,6 +19,38 @@
 
 #define BACKLOG 10     // how many pending connections queue will hold
 
+typdef struct{
+	char *key;
+	char *value;
+}pair;
+
+pair pairList[10];
+int numUsed;
+
+void add(char *key, char *value){
+	for(int i = 0; i < 10; i++){
+		if(strcmp(pairList[i].key, key) == 0){
+
+		}
+		else if(pairList[i] == NULL){
+			pairList[i].key = (char*) malloc(sizeof(key));
+			pairList[i].value = (char*) malloc(sizeof(value));
+		}
+	}
+}
+
+char *getValue(char *key){
+	return NULL;
+}
+
+pair *getAll(){
+	return NULL;
+}
+
+void remove(char *key){
+
+}
+
 void sigchld_handler()
 {
     // waitpid() might overwrite errno, so we save and restore it:
@@ -51,6 +83,7 @@ int main(void)
     char s[INET6_ADDRSTRLEN];
     int rv;
 
+    numUsed = 0;
     memset(&hints, 0, sizeof hints);
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
