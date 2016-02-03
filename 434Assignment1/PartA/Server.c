@@ -183,8 +183,8 @@ int main(void)
         			printf("Malloc'd properly\n");
         			messages[currentMessages] = tok;
         			printf("Adding tok to the messages list\n");
-        			currentMessages++;
         			printf("%s\n", messages[currentMessages]);
+        			currentMessages++;
         			tok = NULL;
         		}
         	}
