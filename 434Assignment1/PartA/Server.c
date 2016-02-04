@@ -50,10 +50,10 @@ void add(char *key, char *value, int new_fd){
 				return;
 			}
 			else if(pairList[i].key == NULL){
-				pair newPair;
-				newPair.key = key;
-				newPair.value = value;
-				pairList[i] = newPair;
+				pairList[i].key = (char*)malloc(sizeof(key));
+				pairList[i].key = (char*)malloc(sizeof(value));
+				pairList[i].key = key;
+				pairList[i].value = value;
 				numUsed++;
 				char sent[MAXDATASIZE];
 				sprintf(sent, "Key: %s, Value: %s, added to the server, currently have %i values in the server\n", pairList[i].key, pairList[i].value, numUsed);
