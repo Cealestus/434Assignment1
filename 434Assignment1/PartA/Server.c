@@ -51,7 +51,7 @@ void add(char *key, char *value, int new_fd){
 			}
 			else if(pairList[i].key == NULL){
 				pairList[i].key = (char*)malloc(sizeof(key));
-				pairList[i].key = (char*)malloc(sizeof(value));
+				pairList[i].value = (char*)malloc(sizeof(value));
 				pairList[i].key = key;
 				pairList[i].value = value;
 				numUsed++;
