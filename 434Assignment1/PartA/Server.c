@@ -34,7 +34,7 @@ void printPairList(int new_fd){
 	char sent[MAXDATASIZE];
 	int i;
 	for(i = 0; i < 10; i++){
-		sprintf(sent, "%s, %s", pairList[i].key, pairList[i].value);
+		sprintf(sent, "%s, %s\n", pairList[i].key, pairList[i].value);
 		send(new_fd, sent, strlen(sent), 0);
 	}
 }
