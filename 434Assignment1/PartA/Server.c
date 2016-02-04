@@ -235,7 +235,7 @@ int main(void)
         		printPairList(new_fd);
         	}
         	else if(strcmp(tok[0], "exit") == 0){
-        		return 0;
+        		cont = 0;
         	}
         	for(i = 0; i < MAXDATASIZE; i++){
         		tok[i] = " ";
