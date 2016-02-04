@@ -241,6 +241,7 @@ int main(void)
         		tok[i] = " ";
         	}
         }
+        break;
     }
 
     return 0;
