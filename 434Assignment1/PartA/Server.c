@@ -236,6 +236,9 @@ int main(void)
         		getValue(tok[1], new_fd);
         		printPairList(new_fd);
         	}
+        	else if(strcmp(tok[0], "getall") == 0){
+        		printPairList(new_fd);
+        	}
         	else if(strcmp(tok[0], "exit") == 0){
         		cont = 0;
         	}
