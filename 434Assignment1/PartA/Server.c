@@ -26,7 +26,7 @@ typedef struct{
 	char *value;
 }pair;
 
-pair pairList[10];
+static pair pairList[10];
 int numUsed;
 int cont;
 
