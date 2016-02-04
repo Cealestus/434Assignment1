@@ -19,14 +19,14 @@
 
 #define BACKLOG 10     // how many pending connections queue will hold
 
-#define MAXDATASIZE 512
+#define MAXDATASIZE 1024
 
 typedef struct{
 	char *key;
 	char *value;
 }pair;
 
-static pair pairList[10];
+pair pairList[10];
 int numUsed;
 int cont;
 
